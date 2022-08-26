@@ -10,8 +10,9 @@ import SwiftUI
 
 struct ListRowView: View {
     
-    @State var model: ItemModel
-    
+//    @EnvironmentObject var viewModel: ListViewModel
+    var model: ItemModel
+     
     var body: some View {
         HStack {
             Image(systemName: model.isCompleted ? "checkmark.circle" : "circle")
@@ -19,20 +20,21 @@ struct ListRowView: View {
             Text(model.title)
             Spacer()
         }
+        .frame(height: 40)
     }
 }
 
 
-struct ListRowView_Previews: PreviewProvider {
-    
-    static var item1 = ItemModel(title: "Первая победа", isCompleted: false)
-    static var item2 = ItemModel(title: "Второе достижение", isCompleted: true)
-    
-    static var previews: some View {
-        Group {
-            ListRowView(model: item1)
-            ListRowView(model: item2)
-        }
-        .previewLayout(.sizeThatFits)
-    }
-}
+//struct ListRowView_Previews: PreviewProvider {
+//
+//    static var item1 = ItemModel(title: "Первая победа", isCompleted: false)
+//    static var item2 = ItemModel(title: "Второе достижение", isCompleted: true)
+//
+//    static var previews: some View {
+//        Group {
+//            ListRowView(model: item1)
+//            ListRowView(model: item2)
+//        }
+//        .previewLayout(.sizeThatFits)
+//    }
+//}

@@ -9,6 +9,9 @@ import SwiftUI
 
 struct AddView: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var viewModel: ListViewModel
+    
     @State var text: String = ""
     
     var body: some View {
@@ -19,7 +22,8 @@ struct AddView: View {
                 .background(Color(#colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)))
                 .cornerRadius(10)
             Button {
-                
+                viewModel.saveItem(text: text)
+                presentationMode.wrappedValue.dismiss()
             } label: {
                 Text("Сохранить")
                     .font(.headline)
@@ -32,6 +36,7 @@ struct AddView: View {
 
         }
         .padding(.horizontal, 14)
+        .padding(.top, 10)
         .navigationTitle("Добавь победу ✌️")
     }
 }
