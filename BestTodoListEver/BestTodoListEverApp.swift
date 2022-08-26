@@ -11,7 +11,9 @@ import SwiftUI
 struct BestTodoListEverApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ListView()
+            }
         }
     }
 }
